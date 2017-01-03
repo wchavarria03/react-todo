@@ -1,0 +1,1 @@
+export const CONSTANT_EXAMPLE = 'CONSTANT_EXAMPLE';
