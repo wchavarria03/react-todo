@@ -10,6 +10,8 @@ class App extends React.Component {
       <div>
         <IndexLink to="/">Home</IndexLink>
         {' | '}
+        <Link to="/dashboard">Dashboard</Link>
+        {' | '}
         <Link to="/about">About</Link>
         <br/>
         {this.props.children}
