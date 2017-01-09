@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
 // This is a class-based component because the current
@@ -19,9 +19,8 @@ class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  children: PropTypes.element
+App.propsTypes = {
+  children: React.PropTypes.component
 };
 
 export default App;
