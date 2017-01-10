@@ -5,7 +5,7 @@ const TodoList = ({todos, remove, toggle}) => {
   const todoNode = todos.map((todo) => {
     return (<TodoListItem todo={todo} key={todo.id} toggle={toggle} remove={remove}/>);
   });
-  return (<ul>{todoNode}</ul>);
+  return (<ul className="todo-list">{todoNode}</ul>);
 };
 
 TodoList.propTypes = {

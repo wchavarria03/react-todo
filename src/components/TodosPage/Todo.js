@@ -7,17 +7,26 @@ class Todo extends React.Component {
     super(props);
     this.state = {
       todos: [],
-      filteredTodos: []
+      filteredTodos: [],
+      newTodo: ''
     };
   }
   componentWillMount() {
     this.setState({filteredTodos: this.state.todos});
   }
 
-  addTodo(val) {
-    const todo = {id: this.state.todos.length, text: val, status: 'ACTIVE'};
+  changeInput(event) {
+    this.setState({newTodo: event.target.value});
+  }
+
+  addTodo(e) {
+    console.log(e.type);
+    if (e.keyCode  !== 13) {
+      return;
+    }
+    const todo = {id: new Date().getMilliseconds(), text: this.state.newTodo, status: 'ACTIVE'};
     this.state.todos.push(todo);
-    this.setState({todos: this.state.todos});
+    this.setState({todos: this.state.todos, newTodo: ''});
     //TODO: After add one change the filter to all
   }
   removeTodo(id) {
@@ -71,16 +80,18 @@ class Todo extends React.Component {
       }
     ];
     return (
-      <div>
+      <div className="todoapp">
         <TodoTitle title={'Todo List'}/>
         <TodoBox
           itemsLength={this.state.filteredTodos.length}
           filters={filters}
           todos={this.state.filteredTodos}
+          newTodo={this.state.newTodo}
           add={this.addTodo.bind(this)}
           remove={this.removeTodo.bind(this)}
           toggle={this.toggleTodo.bind(this)}
           filterAction={this.filterBy.bind(this)}
+          changeInput={this.changeInput.bind(this)}
         />
       </div>
     );

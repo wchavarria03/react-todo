@@ -2,7 +2,7 @@ import React from 'react';
 
 const TodoTitle = ({title}) => {
   return(
-    <h3>{title}</h3>
+    <h3 className="title">{title}</h3>
   );
 };
 

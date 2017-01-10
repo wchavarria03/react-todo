@@ -4,9 +4,9 @@ const TodoListItem = ({todo, remove, toggle}) => {
   //TODO: Change the hard code string COMPLETED
   return (
     <li>
-      <input type="checkbox" checked={todo.status === 'COMPLETED'} onChange={() => {toggle(todo.id);}}/>
-      {todo.text}
-      <button onClick={() => {remove(todo.id);}}>-</button>
+      <input className="toggle" type="checkbox" checked={todo.status === 'COMPLETED'} onChange={() => {toggle(todo.id);}}/>
+      <label>{todo.text}</label>
+      <button className="destroy" onClick={() => {remove(todo.id);}}></button>
     </li>
   );
 };
